@@ -17,8 +17,6 @@ vim.cmd [[
     " Core
     let mapleader = ','
     nmap <leader>tw :call TrimWhitespace()<CR>
-    nmap <leader>r :so ~/.config/nvim/init.lua<CR>
-    nmap <leader>j :set filetype=journal<CR>
     nmap <silent> <leader><leader> :noh<CR>
     nmap <leader><Tab> :bnext<CR>
     nmap <leader><S-Tab> :bprevious<CR>
@@ -60,14 +58,18 @@ vim.cmd [[
     nnoremap <leader>fo :Telescope oldfiles<CR>
     nnoremap <leader>fd :Telescope find_files cwd=~/.config/nvim/ search_dirs=lua,init.lua<CR>
 
-    " Movement mappings
-    nnoremap <C-d> <C-d>zz
-    nnoremap <C-u> <C-u>zz
-    nnoremap n nzz
-    nnoremap N Nzz
+    nnoremap <C-u> <cmd>call smoothie#do("\<C-u>zz") <CR>
+    vnoremap <C-u> <cmd>call smoothie#do("\<C-u>zz") <CR>
+    nnoremap <C-d> <cmd>call smoothie#do("\<C-d>zz") <CR>
+    vnoremap <C-d> <cmd>call smoothie#do("\<C-d>zz") <CR>
 
+    nnoremap { <cmd>call smoothie#do("\{zz") <CR>
+    vnoremap { <cmd>call smoothie#do("\{zz") <CR>
+    nnoremap } <cmd>call smoothie#do("\}zz") <CR>
+    vnoremap } <cmd>call smoothie#do("\}zz") <CR>
     " Code actions
-    nnoremap <silent> <leader>ca <cmd>:lua vim.lsp.buf.code_action()<CR>
+    " nnoremap <silent> <leader>ca <cmd>:lua vim.lsp.buf.code_action()<CR>
+    nnoremap <silent> <leader>ca <cmd>:CodeActionMenu<CR>
 
     " vcoolor
     let g:vcoolor_map = "<leader>cp"
@@ -84,9 +86,24 @@ vim.cmd [[
     nmap <leader>ce :Copilot enable<CR>
     let g:copilot_no_tab_map = v:true
 
+    " Leetbuddy
+    nmap <leader>lq :LBQuestions<CR>
+    nmap <leader>ll :LBQuestion<CR>
+    nmap <leader>lr :LBReset<CR>
+    nmap <leader>lt :LBTest<CR>
+    nmap <leader>ls :LBSubmit<CR>
 
-    imap <silent><expr> <leader>l luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>' 
-    inoremap <silent> <leader>L <cmd>lua require'luasnip'.jump(-1)<Cr>
+    " Split navigation
+    nmap <leader>sl <C-w>l
+    nmap <leader>sj <C-w>j
+    nmap <leader>sh <C-w>h
+    nmap <leader>sk <C-w>k
+    nmap <leader>ss <C-w>s
+    nmap <leader>sv <C-w>v
+
+    " Luasnip
+    imap <silent><expr> <leader>j luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>' 
+    inoremap <silent> <leader>J <cmd>lua require'luasnip'.jump(-1)<Cr>
 ]]
 
 -- This not being here messes up the syntax highlighting. Thanks for stopping by!

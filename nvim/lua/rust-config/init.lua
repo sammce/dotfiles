@@ -19,8 +19,12 @@ rt.setup {
         }
     },
     server = {
-        on_attach = on_attach,
-        capabilities = capabilities,
+        on_attach = function(_, bufnr)
+            -- Hover actions
+            vim.keymap.set("n", "<leader>rk", rt.hover_actions.hover_actions, { buffer = bufnr })
+            -- Code action groups
+            vim.keymap.set("n", "<Leader>ra", rt.code_action_group.code_action_group, { buffer = bufnr })
+        end,
         settings = {
             ["rust-analyzer"] = {
                 assist = {
@@ -28,11 +32,16 @@ rt.setup {
                     importPrefix = "by_self"
                 },
                 cargo = {
-                    loadOutDirsFromCheck = true
+                    allFeatures = true,
+                    loadOutDirsFromCheck = true,
+                    buildScripts = {
+                        enable = true
+                    }
                 },
                 procMacro = {
-                    enable = true
-                }
+                    enable = true,
+                    experimental = true
+                },
             }
         }
     }

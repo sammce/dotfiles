@@ -41,13 +41,16 @@ return require("packer").startup(function(use)
     use 'glepnir/dashboard-nvim' -- Snazzy & customisable dashboard
     use 'folke/trouble.nvim' -- Show LSP diagnostics in a floating window
 
+    -- Leetcode
+    use 'Dhanus3133/Leetbuddy.nvim'
+
     -- Functionalities
     use 'tpope/vim-fugitive' -- Git wrapper for vim
     use 'tpope/vim-sensible' -- Sensible defaults
     use 'tpope/vim-surround' -- Ability to add, change or remove surrounding brackets/quotes
     use 'tpope/vim-commentary' -- Easy commenting of code
     use 'tpope/vim-eunuch' -- Unix helpers
-    use 'mhinz/vim-signify' -- Show git diff in gutter
+    use 'airblade/vim-gitgutter' -- Show git diff in gutter
     use 'APZelos/blamer.nvim' -- Show git blame in virtual text
     use 'jiangmiao/auto-pairs' -- Auto close brackets and quotes
     use {'alvan/vim-closetag', ft = {'html', 'svelte', 'javascriptreact', 'typescriptreact'}} -- Auto close HTML tags
@@ -55,6 +58,8 @@ return require("packer").startup(function(use)
     use 'junegunn/vim-easy-align' -- Auto align variables around equal signs
     use 'akinsho/git-conflict.nvim'
     use 'lukas-reineke/indent-blankline.nvim'-- Indentation lines - vertical line down from each block
+    use {'weilbith/nvim-code-action-menu', command = "CodeActionMenu"} -- Shows code actions in a floating window
+    use 'psliwka/vim-smoothie' -- Smooth scrolling
 
     use {'RRethy/vim-hexokinase',  run = 'make hexokinase'} -- Show hex colors in code
     use 'KabbAmine/vCoolor.vim' -- Color picker
@@ -64,7 +69,7 @@ return require("packer").startup(function(use)
     use 'machakann/vim-highlightedyank' -- Highlights what text was yanked
     use 'rcarriga/nvim-notify' -- Snazzy notifications
     use 'MunifTanjim/eslint.nvim' -- Makes eslint setup easier
-    use {'simrat39/rust-tools.nvim', ft = 'rust', config = function() require('rust-config') end } -- Makes rust easier to setup
+    use 'simrat39/rust-tools.nvim' -- Makes rust easier to setup
     use 'github/copilot.vim' -- AI Autocompletion
     use {'folke/twilight.nvim', cmd = 'Twilight'} -- Only highlight lines near cursor
     use 'Pocco81/true-zen.nvim' -- Distraction-free writing
@@ -81,6 +86,7 @@ return require("packer").startup(function(use)
     use 'rafi/awesome-vim-colorschemes' -- A bunch of colorschemes
     use 'junegunn/vim-journal' -- Make text files look nicer
     use 'folke/tokyonight.nvim'
+    use { "catppuccin/nvim", as = "catppuccin" }
     use 'folke/todo-comments.nvim' -- Highlight TODOs, FIXMEs, etc.
     use "fladson/vim-kitty"
 end)

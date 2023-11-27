@@ -1,37 +1,42 @@
 vim.cmd [[
-	colorscheme tokyonight-storm
+	colo tokyonight-storm
 	filetype plugin indent on
 	set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab autoindent
 	set incsearch ignorecase smartcase hlsearch
 	set wildmode=longest,list,full wildmenu
 	set ruler laststatus=2 showcmd showmode
-	set fillchars+=vert:\ 
+    set fillchars=vert:│,fold:┈,diff:┈
 	set wrap breakindent
-    set cpoptions+=$
 	set encoding=utf-8
 	set textwidth=0
 	set hidden
-	set number
+	set relativenumber number
 	set title
+    set termguicolors
 ]]
-
--- vim.g.copilot_enabled = false
 
 lsp_servers = {
     'pyright',
     'tsserver',
-    'rust_analyzer',
     'svelte',
     'eslint',
     'clangd',
     'bashls',
     'gopls',
-    'r_language_server'
+    'dockerls',
+    'docker_compose_language_service',
+    'r_language_server',
+    'prismals',
+    'sqlls'
 }
 
 require("plugins")
 require("config")
+require("colors")
 require("mappings")
+
+vim.cmd("autocmd FileType rust highlight @lsp.type.unresolvedReference gui=NONE cterm=NONE")
+
 
 custom_tab_filetypes = {
     "javascript",
@@ -39,7 +44,8 @@ custom_tab_filetypes = {
     "typescriptreact",
     "svelte",
     "html",
-    "css"
+    "css",
+    "scss"
 }
 
 for i, file in pairs(custom_tab_filetypes) do

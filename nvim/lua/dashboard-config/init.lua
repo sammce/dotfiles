@@ -9,9 +9,9 @@ local lolcat_plain = 'lolcat -F 0.1 -S 11'
 db.setup({
     preview = {
         command = 'cat | ' .. lolcat_with_animation,
-        file_path = home .. '/.config/nvim/static/neovim.cat',
-        file_height = 11,
-        file_width = 70,
+        file_path = home .. '/.config/nvim/static/guitar.cat',
+        file_height = 16,
+        file_width = 78,
     },
     config = {
         week_header = {

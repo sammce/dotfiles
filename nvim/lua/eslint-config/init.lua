@@ -1,5 +1,5 @@
 require('eslint').setup {
-    bin = 'eslint',
+    bin = 'eslint_d',
     code_actions = {
         enable = true,
         disable_rule_comment = {
