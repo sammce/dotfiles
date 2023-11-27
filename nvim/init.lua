@@ -15,6 +15,7 @@ vim.cmd [[
     set termguicolors
 ]]
 
+
 lsp_servers = {
     'pyright',
     'tsserver',
