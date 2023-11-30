@@ -1,5 +1,4 @@
 vim.cmd [[
-	colo tokyonight-storm
 	filetype plugin indent on
 	set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab autoindent
 	set incsearch ignorecase smartcase hlsearch
