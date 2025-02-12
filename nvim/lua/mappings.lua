@@ -1,5 +1,3 @@
--- Custom Mappings (vim) (lua custom mappings are within individual lua config files)
-
 vim.cmd [[
     function! TrimWhitespace()
         let l:save = winsaveview()
@@ -7,56 +5,45 @@ vim.cmd [[
         call winrestview(l:save)
     endfunction
 
-    " Neovim :Terminal
-    tmap <Esc> <C-\><C-n>
-    tmap <C-w> <Esc><C-w>
-    
-    autocmd BufWinEnter,WinEnter term://* startinsert
-    autocmd BufLeave term://* stopinsert
-
     " Core
     let mapleader = ','
     nmap <leader>tw :call TrimWhitespace()<CR>
     nmap <silent> <leader><leader> :noh<CR>
     nmap <leader><Tab> :bnext<CR>
     nmap <leader><S-Tab> :bprevious<CR>
-    nmap <leader>nr :set relativenumber!<CR>
+    nmap <leader>ba :%bd\|e#\|bd#<CR>
+    nmap <leader>nr :set number!<CR>
 
-    " Zen Mode
-    nmap <leader>zn :TZNarrow<CR>
-    vmap <leader>zn :'<,'>TZNarrow<CR>
-    nmap <leader>zf :TZFocus<CR>
-    nmap <leader>zm :TZMinimalist<CR>
-    nmap <leader>za :TZAtaraxis<CR>
-    nmap <leader>zl :Twilight<CR>
+    " Django
+    nmap <leader>dj :set ft=htmldjango<CR>
+    nmap <leader>ht :set ft=html<CR>
 
-    " Easy align
-    nmap ga <Plug>(EasyAlign)
-    xmap ga <Plug>(EasyAlign)
+    nmap <leader>et :Neotree<CR>
+    nmap <leader>ec :Neotree close<CR>
+    nmap <leader>ef :Neotree focus<CR>
 
-    " Shell/terminal commands
-    nmap <leader>sn <C-w>s<C-w>j:terminal<CR>:set nonumber<CR><S-a>
+    nmap <leader>z :ZenMode<CR>
 
-    " Nvim Tree
-    nmap <leader>et :NvimTreeToggle<CR>
-    nmap <leader>ec :NvimTreeClose<CR>
-    nmap <leader>eo :NvimTreeOpen<CR>
-    nmap <leader>ef :NvimTreeFocus<CR>
+    " Notify
+    nmap <silent> <leader>cn :lua require('notify').dismiss()<CR>
 
-    " Tagbar
-    nmap <leader>tt :TagbarToggle<CR>
-    nmap <leader>to :TagbarOpen<CR>
-    nmap <leader>tc :TagbarClose<CR>
+    " Aerial
+    nmap <silent> <leader>at :AerialToggle<CR>
+
+    " Trouble
+    nmap <leader>tr :Trouble diagnostics focus<CR>
+    nmap <leader>tc :Trouble diagnostics close<CR>
 
     " Telescope mappings
     nnoremap <leader>ff :Telescope find_files<CR>
     nnoremap <leader>fg :Telescope live_grep<CR>
     nnoremap <leader>fb :Telescope buffers<CR>
     nnoremap <leader>fh :Telescope help_tags<CR>
-    nnoremap <leader>fc :Telescope colorscheme<CR>
     nnoremap <leader>f/ :Telescope current_buffer_fuzzy_find<CR>
     nnoremap <leader>fo :Telescope oldfiles<CR>
-    nnoremap <leader>fd :Telescope find_files cwd=~/.config/nvim/ search_dirs=lua,init.lua<CR>
+    nnoremap <leader>fd :Telescope diagnostics<CR>
+    nnoremap <leader>fc :Telescope find_files cwd=~/.config/nvim/ search_dirs=lua,init.lua<CR>
+    nnoremap <leader>ft :TodoTelescope<CR>
 
     nnoremap <C-u> <cmd>call smoothie#do("\<C-u>zz") <CR>
     vnoremap <C-u> <cmd>call smoothie#do("\<C-u>zz") <CR>
@@ -67,14 +54,14 @@ vim.cmd [[
     vnoremap { <cmd>call smoothie#do("\{zz") <CR>
     nnoremap } <cmd>call smoothie#do("\}zz") <CR>
     vnoremap } <cmd>call smoothie#do("\}zz") <CR>
-    " Code actions
-    " nnoremap <silent> <leader>ca <cmd>:lua vim.lsp.buf.code_action()<CR>
-    nnoremap <silent> <leader>ca <cmd>:CodeActionMenu<CR>
 
-    " vcoolor
-    let g:vcoolor_map = "<leader>cp"
-    nmap <leader>ct :HexokinaseToggle<CR>
-    xmap <leader>ct :HexokinaseToggle<CR>
+    " Nvim lsp stuff
+    nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>
+    nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
+    nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
+    nnoremap <silent> [d <cmd>lua vim.diagnostic.goto_prev({ float = false })<CR>
+    nnoremap <silent> ]d <cmd>lua vim.diagnostic.goto_next({ float = false })<CR>
+    nnoremap <silent> <leader>of <cmd>lua vim.diagnostic.open_float()<CR>
 
     " Close buffer
     nmap <leader>w :bd<CR>
@@ -85,6 +72,11 @@ vim.cmd [[
     nmap <leader>cd :Copilot disable<CR>
     nmap <leader>ce :Copilot enable<CR>
     let g:copilot_no_tab_map = v:true
+
+    " Icon picker
+    nmap <leader>i :IconPickerNormal<CR>
+    nmap <leader>y :IconPickerYank<CR>
+    imap <C-i> :IconPickerInsert<CR>
 
     " Leetbuddy
     nmap <leader>lq :LBQuestions<CR>
@@ -100,9 +92,10 @@ vim.cmd [[
     nmap <leader>sk <C-w>k
     nmap <leader>ss <C-w>s
     nmap <leader>sv <C-w>v
+    nmap <leader>sr <leader>ssq<leader>ef<CR>
 
     " Luasnip
-    imap <silent><expr> <leader>j luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>' 
+    imap <silent><expr> <leader>j luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
     inoremap <silent> <leader>J <cmd>lua require'luasnip'.jump(-1)<Cr>
 ]]
 

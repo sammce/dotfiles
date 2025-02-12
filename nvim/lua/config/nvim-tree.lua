@@ -4,7 +4,7 @@ vim.g.loaded_netrwPlugin = 1
 require'nvim-tree'.setup {
     git = {
         enable = true,
-        ignore = false,
+        ignore = true,
         timeout = 400,
     },
     renderer = {
@@ -16,6 +16,8 @@ require'nvim-tree'.setup {
                     arrow_closed = "+",
                 },
             },
+            git_placement = "after",
+            modified_placement = "signcolumn"
         },
     },
     view = {
@@ -31,5 +33,8 @@ require'nvim-tree'.setup {
                 col = 3,
             },
         },
-    }
+    },
+    filters = {
+      dotfiles = true,
+    },
 }
