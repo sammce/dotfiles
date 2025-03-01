@@ -1,5 +1,5 @@
 require("tokyonight").setup {
-  transparent = false,
+  transparent = true,
   on_colors = function(colors)
   end,
 }

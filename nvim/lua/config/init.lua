@@ -15,6 +15,7 @@ local configurations = {
   'lualine',
   'bufferline',
   'notify',
+  'noice',
   'todo-comments',
   'conflict',
   'tokyonight',

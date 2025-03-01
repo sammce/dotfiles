@@ -54,7 +54,7 @@ require("lazy").setup({
   -- Change vim ui
   'nvim-lualine/lualine.nvim',       -- Statusline written in Lua
   'akinsho/bufferline.nvim',         -- VSCode-esque 'tabs' (buffers, actually)
-  'jose-elias-alvarez/null-ls.nvim', -- Allows non-lsp sources to contribute to diagnostics etc
+  'nvimtools/none-ls.nvim', -- Allows non-lsp sources to contribute to diagnostics etc
 
   -- 'glepnir/dashboard-nvim',                                                                      -- Snazzy & customisable dashboard
   { 'folke/trouble.nvim',  opts = {}, cmd = "Trouble" }, -- Show LSP diagnostics in a floating window
@@ -74,10 +74,23 @@ require("lazy").setup({
 
   'KabbAmine/vCoolor.vim',                                                       -- Color picker
   { 'dkarter/bullets.vim', ft = { 'markdown', 'text', 'asciidoc', 'journal' } }, -- Auto continuation of bullet points
-  'wellle/context.vim',                                                          -- Displays context of what block you're in (e.g. if, for, etc.)
+  -- 'wellle/context.vim',                                                          -- Displays context of what block you're in (e.g. if, for, etc.)
   'rafamadriz/friendly-snippets',                                                -- Huge list of predefined snippets
   'machakann/vim-highlightedyank',                                               -- Highlights what text was yanked
   'rcarriga/nvim-notify',                                                        -- Snazzy notifications
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    opts = {},
+    dependencies = {
+      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+      "MunifTanjim/nui.nvim",
+      -- OPTIONAL:
+      --   `nvim-notify` is only needed, if you want to use the notification view.
+      --   If not available, we use `mini` as the fallback
+      "rcarriga/nvim-notify",
+      }
+  },
   { 'simrat39/rust-tools.nvim', ft = 'rust' },
   'github/copilot.vim',                                                          -- AI Autocompletion
   {

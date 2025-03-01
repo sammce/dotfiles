@@ -15,6 +15,7 @@ require('lualine').setup {
         lualine_b = {'branch', 'diff', {
                 'diagnostics',
                 sources = {'nvim_lsp'},
+
                 symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '},
             }
         },
