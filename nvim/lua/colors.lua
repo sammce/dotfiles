@@ -1,6 +1,16 @@
 -- Vim
 vim.cmd("autocmd ColorScheme * highlight WinSeparator guifg=#29a4bd")
 
+vim.cmd("autocmd ColorScheme * highlight HighlightedYankRegion guibg=#1A6D7C guifg=#BEEBFE")
+
+-- NeoTree
+vim.cmd("autocmd ColorScheme * highlight NeoTreeNormal guibg=NONE")
+vim.cmd("autocmd ColorScheme * highlight NeoTreeRootName guibg=NONE")
+vim.cmd("autocmd ColorScheme * highlight NeoTreeCursorLine guibg=#12454E")
+vim.cmd("autocmd ColorScheme * highlight NeoTreeStatusLine guibg=NONE")
+vim.cmd("autocmd ColorScheme * highlight NeoTreeEndOfBuffer guibg=NONE")
+
+
 -- Git Gutter
 vim.cmd("autocmd ColorScheme * highlight GitGutterChange guifg=#ffcc00")
 vim.cmd("autocmd ColorScheme * highlight GitGutterAdd ctermfg=2 guifg=#009900")

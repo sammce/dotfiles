@@ -12,16 +12,17 @@ vim.cmd [[
     nmap <silent> <leader><Tab> :bnext<CR>
     nmap <silent> <leader><S-Tab> :bprevious<CR>
     nmap <silent> <leader>ba :%bd\|e#\|bd#<CR>
-    nmap <silent> <leader>nr :set number!<CR>
 
-    " Django
-    nmap <silent> <leader>dj :set ft=htmldjango<CR>
-    nmap <silent> <leader>ht :set ft=html<CR>
+    " NNN
+    nmap <silent> <leader>nn :NnnPicker<CR>
 
+
+    " Neotree
     nmap <silent> <leader>et :Neotree<CR>
     nmap <silent> <leader>ec :Neotree close<CR>
     nmap <silent> <leader>ef :Neotree focus<CR>
 
+    " Zen
     nmap <silent> <leader>z :ZenMode<CR>
 
     " Notify
@@ -48,6 +49,7 @@ vim.cmd [[
     nnoremap <silent> <leader>fc :Telescope find_files cwd=~/.config/nvim/ search_dirs=lua,init.lua<CR>
     nnoremap <silent> <leader>ft :TodoTelescope<CR>
 
+    " Smoothie
     nnoremap <C-u> <cmd>call smoothie#do("\<C-u>zz") <CR>
     vnoremap <C-u> <cmd>call smoothie#do("\<C-u>zz") <CR>
     nnoremap <C-d> <cmd>call smoothie#do("\<C-d>zz") <CR>
@@ -70,23 +72,16 @@ vim.cmd [[
     nmap <silent> <leader>w :bd<CR>
     nmap <silent> <leader>W :bd!<CR>
 
-    " Copilot
-    imap <silent><script><expr> <leader><Tab> copilot#Accept("")
-    nmap <silent> <leader>cd :Copilot disable<CR>
-    nmap <silent> <leader>ce :Copilot enable<CR>
-    let g:copilot_no_tab_map = v:true
+    " Codeium
+    imap <silent><script><expr> <leader><Tab> codeium#Accept()
+    imap <silent><script><expr> <leader>cl codeium#AcceptNextLine()
+    imap <silent><script><expr> <leader>cw codeium#AcceptNextWord()
+
 
     " Icon picker
     nmap <silent> <leader>i :IconPickerNormal<CR>
     nmap <silent> <leader>y :IconPickerYank<CR>
     imap <silent> <C-i> :IconPickerInsert<CR>
-
-    " Leetbuddy
-    nmap <silent> <leader>lq :LBQuestions<CR>
-    nmap <silent> <leader>ll :LBQuestion<CR>
-    nmap <silent> <leader>lr :LBReset<CR>
-    nmap <silent> <leader>lt :LBTest<CR>
-    nmap <silent> <leader>ls :LBSubmit<CR>
 
     " Split navigation
     nmap <silent> <leader>sl <C-w>l
@@ -95,7 +90,7 @@ vim.cmd [[
     nmap <silent> <leader>sk <C-w>k
     nmap <silent> <leader>ss <C-w>s
     nmap <silent> <leader>sv <C-w>v
-    nmap <silent> <leader>sr <leader>ssq<leader>ef<CR>
+    nmap <silent> <leader>nr <leader>ssq<leader>ef<CR>
 
     " VCoolor
     nmap <silent> <leader>vc :VCoolor<CR>
@@ -104,5 +99,3 @@ vim.cmd [[
     imap <silent><expr> <leader>j luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
     inoremap <silent> <leader>J <cmd>lua require'luasnip'.jump(-1)<Cr>
 ]]
-
--- This not being here messes up the syntax highlighting. Thanks for stopping by!

@@ -16,238 +16,167 @@ local html_like = {
 }
 
 require("lazy").setup({
-  'nvim-lua/plenary.nvim', -- Honestly have no clue what this does but it a dependency of like 7 plugins
 
-  -- Treesitter
-  'nvim-treesitter/nvim-treesitter', -- Better syntax highlighting
+  -- 🛠️ Core Dependencies
+  { "nvim-lua/plenary.nvim" },  -- Required by multiple plugins
+  { "nvim-tree/nvim-web-devicons" }, -- Icons for UI elements
+  { "MunifTanjim/nui.nvim" }, -- UI components for other plugins
 
-  -- CMP/LSP
-  'neovim/nvim-lspconfig',               -- Makes LSP easier to configure
-  'hrsh7th/cmp-nvim-lsp',                -- Allows nvim-cmp to use LSP as a source
-  'hrsh7th/cmp-buffer',                  -- Buffer completion
-  'hrsh7th/cmp-path',                    -- Path completion
-  'hrsh7th/nvim-cmp',                    -- Autocompletion menu for nvim
-  'hrsh7th/cmp-nvim-lsp-signature-help', -- Displays function signatures with current param highlighted
-  'MunifTanjim/prettier.nvim',           -- Prettier for lua
-
-  -- Mason LSP manager
-  'williamboman/mason.nvim',           -- Allows easy management of lsp server installations
-  'williamboman/mason-lspconfig.nvim', -- To make mason work with lspconfig
-
-  -- Telescope
-  'nvim-telescope/telescope.nvim', -- Allows fuzzy finding of files, buffers, grep results, loads of shit.
-
-  -- Luasnip
-  'L3MON4D3/LuaSnip',
-  'saadparwaiz1/cmp_luasnip',
+  -- 🏗️ Treesitter for Syntax Highlighting
   {
-    'rmagatti/auto-session',
-    lazy = false,
-    opts = {
-      suppressed_dirs = { '~/', '~/Projects', '~/Downloads', '/' },
-    }
+    "nvim-treesitter/nvim-treesitter",
+    event = "BufReadPost", -- Load only when a file is opened
   },
 
-  -- Nvim tree
-  'nvim-tree/nvim-web-devicons', -- Adds icons to nvim-tree
+  -- ⚡ LSP Configuration
+  { "neovim/nvim-lspconfig" }, -- Simplifies LSP setup
+  { "williamboman/mason.nvim", config = true }, -- LSP server manager
+  { "williamboman/mason-lspconfig.nvim" }, -- Mason integration with LSPConfig
 
-  -- Change vim ui
-  'nvim-lualine/lualine.nvim',       -- Statusline written in Lua
-  'akinsho/bufferline.nvim',         -- VSCode-esque 'tabs' (buffers, actually)
-  'nvimtools/none-ls.nvim', -- Allows non-lsp sources to contribute to diagnostics etc
+  -- 🔮 Completion & Snippets
+  { "hrsh7th/nvim-cmp", event = "InsertEnter" }, -- Auto-completion engine
+  { "hrsh7th/cmp-nvim-lsp" }, -- LSP as a completion source
+  { "hrsh7th/cmp-buffer" }, -- Buffer completions
+  { "hrsh7th/cmp-path" }, -- Path completions
+  { "hrsh7th/cmp-nvim-lsp-signature-help" }, -- Show function signatures
+  { "L3MON4D3/LuaSnip", version = "v2.*", build = "make install_jsregexp" }, -- Snippet engine
+  { "rafamadriz/friendly-snippets" }, -- VSCode snippets
+  { "nvimtools/none-ls.nvim" }, -- Allows non-lsp sources to contribute to diagnostics etc
+  { "folke/lazydev.nvim", ft = "lua" }, -- Sets up LSP for lua properly
 
-  -- 'glepnir/dashboard-nvim',                                                                      -- Snazzy & customisable dashboard
-  { 'folke/trouble.nvim',  opts = {}, cmd = "Trouble" }, -- Show LSP diagnostics in a floating window
 
-  -- Functionalities
-  'tpope/vim-fugitive',                                                          -- Git wrapper for vim
-  'tpope/vim-sensible',                                                          -- Sensible defaults
-  'tpope/vim-surround',                                                          -- Ability to add, change or remove surrounding brackets/quotes
-  'tpope/vim-commentary',                                                        -- Easy commenting of code
-  'tpope/vim-eunuch',                                                            -- Unix helpers
-  'airblade/vim-gitgutter',                                                      -- Show git diff in gutter
-  'jiangmiao/auto-pairs',                                                        -- Auto close brackets and quotes
-  'tpope/vim-abolish',                                                           -- Abbreviation, substitution and case conversion on crack
-  'akinsho/git-conflict.nvim',                                                   -- Show VSCode like git merge conflicts
-  'lukas-reineke/indent-blankline.nvim',                                         -- Indentation lines - vertical line down from each block
-  'psliwka/vim-smoothie',                                                        -- Smooth animations when scrolling
+  -- 🔍 Telescope (Fuzzy Finder)
+  {
+    "nvim-telescope/telescope.nvim",
+    cmd = "Telescope",
+    dependencies = { "nvim-telescope/telescope-fzf-native.nvim" },
+  },
+  { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }, -- Faster searching
+  { "mcchrish/nnn.vim" }, -- NNN vim wrapper
 
-  'KabbAmine/vCoolor.vim',                                                       -- Color picker
-  { 'dkarter/bullets.vim', ft = { 'markdown', 'text', 'asciidoc', 'journal' } }, -- Auto continuation of bullet points
-  -- 'wellle/context.vim',                                                          -- Displays context of what block you're in (e.g. if, for, etc.)
-  'rafamadriz/friendly-snippets',                                                -- Huge list of predefined snippets
-  'machakann/vim-highlightedyank',                                               -- Highlights what text was yanked
-  'rcarriga/nvim-notify',                                                        -- Snazzy notifications
+
+  -- 🎨 UI Enhancements
+  { "folke/tokyonight.nvim", priority = 1000 }, -- Color scheme
+  { "nvim-lualine/lualine.nvim" }, -- Statusline
+  { "akinsho/bufferline.nvim" }, -- Buffer tabs
+  { "rcarriga/nvim-notify" }, -- Notifications
+  { "lukas-reineke/indent-blankline.nvim" }, -- Indentation guides
+  { "psliwka/vim-smoothie" }, -- Smooth scrolling
+
+  -- 🏗️ LSP & Code Navigation
+  { "onsails/lspkind.nvim" }, -- Icons in LSP completion
+  {
+    "folke/trouble.nvim",
+    cmd = "Trouble",
+    opts = {},
+  }, -- Show LSP diagnostics in a floating window
+  {
+    "stevearc/aerial.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    opts = { layout = { default_direction = "left", min_width = 20 } },
+  }, -- Function symbol outline
+
+  -- 🛠️ QOL Plugins (Git, Comments, Formatting, etc.)
+  { "tpope/vim-fugitive" }, -- Git integration
+  { "tpope/vim-surround" }, -- Modify surrounding characters
+  { "tpope/vim-commentary", lazy = true }, -- Comment code easily
+  { "tpope/vim-eunuch" }, -- Unix commands in Vim
+  { "machakann/vim-highlightedyank" },
+  { "airblade/vim-gitgutter" }, -- Show Git diffs in the gutter
+  { "jiangmiao/auto-pairs" }, -- Auto-close brackets & quotes
+  { "akinsho/git-conflict.nvim", lazy = true }, -- VSCode-style Git conflict resolution
+  { "tpope/vim-abolish" }, -- Enhanced substitutions
+  { "nmac427/guess-indent.nvim" }, -- Auto-detect indentation
+  { 'MunifTanjim/prettier.nvim' }, -- Prettier support
+
+
+  -- ✨ Fancy UI Plugins
   {
     "folke/noice.nvim",
     event = "VeryLazy",
-    opts = {},
-    dependencies = {
-      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-      "MunifTanjim/nui.nvim",
-      -- OPTIONAL:
-      --   `nvim-notify` is only needed, if you want to use the notification view.
-      --   If not available, we use `mini` as the fallback
-      "rcarriga/nvim-notify",
-      }
-  },
-  { 'simrat39/rust-tools.nvim', ft = 'rust' },
-  'github/copilot.vim',                                                          -- AI Autocompletion
+    dependencies = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
+  }, -- Enhanced notifications
+  { 
+    "folke/which-key.nvim", 
+    opts = {
+      preset = "modern"
+    }, event = "VeryLazy" 
+  }, -- Show possible keybindings
   {
     "folke/zen-mode.nvim",
+    cmd = "ZenMode",
     opts = {
-      window = {
-        backdrop = 0.95,
-        height = 0.9
-      },
-      plugins = {
-        alacritty = {
-          enabled = true,
-          font = "20"
-        },
-        tmux = {
-          enabled = true
-        },
-      }
-    }
-  },
+      window = { backdrop = 0.95, height = 0.9 },
+      plugins = { tmux = { enabled = true } },
+    },
+  }, -- Distraction-free mode
+
+  -- 📜 Markdown & Writing
+  { "iamcco/markdown-preview.nvim", ft = "markdown", run = "cd app && pnpm install" }, -- Live Markdown preview
+  { "dkarter/bullets.vim", ft = { "markdown", "text", "asciidoc", "journal" } }, -- Bullet points in Markdown
+  { "davidmh/mdx.nvim", dependencies = { "nvim-treesitter/nvim-treesitter" }, ft = "mdx" }, -- Treesitter for MDX
+
+  -- 🚀 Programming Language Support
+  { "simrat39/rust-tools.nvim", ft = "rust" }, -- Rust support
   {
-    "iamcco/markdown-preview.nvim",
-    run = function() vim.fn["mkdp#util#install"]() end
+    "pmizio/typescript-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    ft = { "typescript", "typescriptreact" },
+  }, -- TypeScript support
+  { "averms/black-nvim", ft = "python" }, -- Python formatter (Black)
+  { "leafOfTree/vim-svelte-plugin", ft = "svelte" }, -- Svelte support
+
+  -- 🏗️ Web Development
+  { "mattn/emmet-vim", ft = html_like }, -- Emmet for fast HTML coding
+  { "JoosepAlviste/nvim-ts-context-commentstring", ft = html_like }, -- Context-aware comments
+  { "KabbAmine/vCoolor.vim" },
+  {
+    "windwp/nvim-ts-autotag",
+    ft = html_like,
+    config = function() require("nvim-ts-autotag").setup() end,
+  }, -- Auto-close HTML tags
+
+  -- 🖼️ Emoji & Icon Picker
+  {
+    "ziontee113/icon-picker.nvim",
+    event = "VeryLazy",
+    config = function() require("icon-picker").setup({ disable_legacy_commands = true }) end,
   },
 
-  'nmac427/guess-indent.nvim',
-  'stevearc/dressing.nvim',
+  -- AI
+  { "Exafunction/codeium.vim", event = "BufReadPre" }, -- AI code completion
 
+  -- 🖥️ Window & Session Management
+  {
+    "rmagatti/auto-session",
+    lazy = false,
+    opts = { suppressed_dirs = { "~", "~/Projects", "~/Downloads", "/" } },
+  }, -- Auto-save & restore sessions
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
     dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
-      {
-        's1n7ax/nvim-window-picker',
-        version = '2.*',
-        config = function()
-          require 'window-picker'.setup({
-            filter_rules = {
-              include_current_win = false,
-              autoselect_one = true,
-              -- filter using buffer options
-              bo = {
-                -- if the file type is one of following, the window will be ignored
-                filetype = { 'neo-tree', "neo-tree-popup", "notify" },
-                -- if the buffer type is one of following, the window will be ignored
-                buftype = { 'terminal', "quickfix" },
-              },
-            },
-          })
-        end,
-      },
+      "s1n7ax/nvim-window-picker",
+      config = function()
+        require("window-picker").setup({
+          filter_rules = {
+            include_current_win = false,
+            autoselect_one = true,
+            bo = { filetype = { "neo-tree", "notify" }, buftype = { "terminal", "quickfix" } },
+          },
+        })
+      end,
     },
-  },
+  }, -- File explorer replacement
 
-  { 'leafOfTree/vim-svelte-plugin', ft = 'svelte' },
-
-  'onsails/lspkind.nvim', -- Adds icons to lsp completion items
-
-  -- Comment.nvim
-  -- 'numToStr/Comment.nvim',
-
-  -- Window for picking emojis
-  {
-    "ziontee113/icon-picker.nvim",
-    config = function()
-        require("icon-picker").setup({ disable_legacy_commands = true })
-
-        -- local opts = { noremap = true, silent = true }
-
-        -- vim.keymap.set("n", "<Leader>i", "<cmd>IconPickerNormal<cr>", opts)
-        -- vim.keymap.set("n", "<Leader>y", "<cmd>IconPickerYank<cr>", opts) --> Yank the selected icon into register
-        -- vim.keymap.set("i", "<C-i>", "<cmd>IconPickerInsert<cr>", opts)
-    end
-  },
-
-  -- emmet-vim
-  { 'mattn/emmet-vim',              ft = html_like },
-
-  -- 
-  {
-    "pmizio/typescript-tools.nvim",
-    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-    opts = {},
-  },
-
-  -- nvim-ts-autotag
-  {
-    'windwp/nvim-ts-autotag',
-    ft = html_like,
-    config = function()
-      require('nvim-ts-autotag').setup()
-    end
-  },
-
-  -- nvim-ts-context-commentstring
-  'JoosepAlviste/nvim-ts-context-commentstring',
-
-  -- neodev
-  { "folke/neodev.nvim", opts = {} },
-
-  -- telescope-fzf-native.nvim
-  { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
-
-  -- nui.nvim
-  'MunifTanjim/nui.nvim',
-
+  -- ⏳ Miscellaneous Enhancements
+  { "sammce/fleeting.nvim" }, -- Tracks time spent in Neovim
+  { "folke/todo-comments.nvim" }, -- Highlights TODOs, FIXMEs, etc.
   {
     "aznhe21/actions-preview.nvim",
-    config = function()
-      vim.keymap.set({ "v", "n" }, ",ca", require("actions-preview").code_actions)
-    end,
-  },
+    keys = { { ",ca", mode = { "v", "n" } } },
+    config = function() vim.keymap.set({ "v", "n" }, ",ca", require("actions-preview").code_actions) end,
+  }, -- Show available code actions
 
-  -- Aesthetics
-  'junegunn/vim-journal',          -- Make text files look nicer
-  'folke/tokyonight.nvim',
-  'folke/todo-comments.nvim',      -- Highlight TODOs, FIXMEs, etc.
-
-  {
-    'stevearc/aerial.nvim',
-    opts = {
-      layout = {
-        default_direction = "left",
-        min_width = 20,
-      }
-    },
-    -- Optional dependencies
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "nvim-tree/nvim-web-devicons"
-    },
-  },
-
-  "sammce/fleeting.nvim",
-
-  {
-    "davidmh/mdx.nvim",
-    config = true,
-    dependencies = {"nvim-treesitter/nvim-treesitter"}
-  },
-
-  "averms/black-nvim",
-
-  {
-    "folke/which-key.nvim",
-    event = "VeryLazy",
-    init = function()
-      vim.o.timeout = true
-      vim.o.timeoutlen = 500
-    end,
-    opts = {
-      win = {
-        border = "single", -- none, single, double, shadow
-      },
-    }
-  }
 })
+

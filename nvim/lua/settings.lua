@@ -11,13 +11,27 @@ vim.cmd [[
 ]]
 vim.g.closetag_shortcut = '>'
 
-vim.g.copilot_enabled = 1
+-- Set cursor in terminal emulators
+vim.cmd [[
+  set guicursor=n-v-c:block-Cursor
+  set guicursor+=i:ver100-iCursor
+  set guicursor+=n-v-c:blinkon0
+  set guicursor+=i:blinkwait10
+]]
+
+
+-- vim.g.copilot_enabled = 1
+vim.g.codeium_disable_bindings = 1
 
 -- Git blame
 vim.g.blamer_enabled = true
 vim.g.blamer_prefix = '       '
 vim.g.blamer_show_in_insert_modes = false
 vim.g.blamer_show_in_visual_modes = false
+
+vim.cmd [[
+  let g:nnn#command = 'nnn -d'
+]]
 
 -- Svelte plugin (fix indenting)
 vim.g.vim_svelte_plugin_has_init_indent = 1
