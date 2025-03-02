@@ -46,7 +46,8 @@ vim.cmd [[
     nnoremap <silent> <leader>f/ :Telescope current_buffer_fuzzy_find<CR>
     nnoremap <silent> <leader>fo :Telescope oldfiles<CR>
     nnoremap <silent> <leader>fd :Telescope diagnostics<CR>
-    nnoremap <silent> <leader>fc :Telescope find_files cwd=~/.config/nvim/ search_dirs=lua,init.lua<CR>
+    nnoremap <silent> <leader>fl :Telescope find_files cwd=~/.config/nvim/ search_dirs=lua,init.lua<CR>
+    nnoremap <silent> <leader>fc :Telescope find_files cwd=~/.config search_dirs=superfile<CR>
     nnoremap <silent> <leader>ft :TodoTelescope<CR>
 
     " Smoothie

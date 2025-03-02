@@ -6,8 +6,13 @@ ts.setup {
       "node_modules",
       "__snapshots__",
       "*-lock.*",
-      "venv"
+      "venv",
     },
+    layout_config = {
+      anchor = "CENTER",
+      height = 0.8,
+      width = 0.8,
+    }
   },
   pickers = {
     colorscheme = {

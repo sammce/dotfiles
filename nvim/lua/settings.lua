@@ -29,8 +29,9 @@ vim.g.blamer_prefix = '       '
 vim.g.blamer_show_in_insert_modes = false
 vim.g.blamer_show_in_visual_modes = false
 
+-- NNN.vim
 vim.cmd [[
-  let g:nnn#command = 'nnn -d'
+  let g:nnn#command = 'unset NNN_TMPFILE; nnn -do'
 ]]
 
 -- Svelte plugin (fix indenting)
