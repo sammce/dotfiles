@@ -82,7 +82,7 @@ require("lazy").setup({
   { "tpope/vim-commentary", lazy = true }, -- Comment code easily
   { "tpope/vim-eunuch" }, -- Unix commands in Vim
   { "machakann/vim-highlightedyank" },
-  { "airblade/vim-gitgutter" }, -- Show Git diffs in the gutter
+  { "lewis6991/gitsigns.nvim" }, -- Show Git diffs in the gutter
   { "jiangmiao/auto-pairs" }, -- Auto-close brackets & quotes
   { "akinsho/git-conflict.nvim", lazy = true }, -- VSCode-style Git conflict resolution
   { "tpope/vim-abolish" }, -- Enhanced substitutions
@@ -155,6 +155,7 @@ require("lazy").setup({
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
+
     dependencies = {
       "s1n7ax/nvim-window-picker",
       config = function()

@@ -16,6 +16,14 @@ vim.cmd("autocmd ColorScheme * highlight TelescopeNormal guibg=#000F13")
 vim.cmd("autocmd ColorScheme * highlight TelescopeBorder guibg=#000F13")
 
 
+-- WhichKey
+vim.cmd("autocmd ColorScheme * highlight WhichKeyNormal guibg=#000F13")
+vim.cmd("autocmd ColorScheme * highlight WhichKeyBorder guifg=#27a1b9 guibg=#000F13")
+vim.cmd("autocmd ColorScheme * highlight WhichKeyTitle guifg=#27a1b9 guibg=#000F13")
+
+-- Noice
+vim.cmd("autocmd ColorScheme * highlight NoiceCmdlinePopup guibg=#01151C")
+
 -- Git Gutter
 vim.cmd("autocmd ColorScheme * highlight GitGutterChange guifg=#ffcc00")
 vim.cmd("autocmd ColorScheme * highlight GitGutterAdd ctermfg=2 guifg=#009900")
