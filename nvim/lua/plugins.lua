@@ -121,7 +121,7 @@ require("lazy").setup({
   {
     "pmizio/typescript-tools.nvim",
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-    ft = { "typescript", "typescriptreact" },
+    opts = {}
   }, -- TypeScript support
   { "averms/black-nvim", ft = "python" }, -- Python formatter (Black)
   { "leafOfTree/vim-svelte-plugin", ft = "svelte" }, -- Svelte support
