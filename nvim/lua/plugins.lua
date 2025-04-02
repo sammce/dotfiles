@@ -33,6 +33,12 @@ require("lazy").setup({
   { "williamboman/mason.nvim", config = true }, -- LSP server manager
   { "williamboman/mason-lspconfig.nvim" }, -- Mason integration with LSPConfig
 
+  -- 🐞 Debug
+  { "mfussenegger/nvim-dap" },
+  { "jay-babu/mason-nvim-dap.nvim" },
+  { "nvim-neotest/nvim-nio" },
+  { "rcarriga/nvim-dap-ui", dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} },
+
   -- 🔮 Completion & Snippets
   { "hrsh7th/nvim-cmp", event = "InsertEnter" }, -- Auto-completion engine
   { "hrsh7th/cmp-nvim-lsp" }, -- LSP as a completion source
@@ -117,7 +123,10 @@ require("lazy").setup({
   { "davidmh/mdx.nvim", dependencies = { "nvim-treesitter/nvim-treesitter" }, ft = "mdx" }, -- Treesitter for MDX
 
   -- 🚀 Programming Language Support
-  { "simrat39/rust-tools.nvim", ft = "rust" }, -- Rust support
+  {
+    "mrcjkb/rustaceanvim",
+    version = '^5', -- Recommended
+  },
   {
     "pmizio/typescript-tools.nvim",
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },

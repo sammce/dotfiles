@@ -3,6 +3,10 @@ vim.cmd("autocmd ColorScheme * highlight WinSeparator guifg=#29a4bd")
 
 vim.cmd("autocmd ColorScheme * highlight HighlightedYankRegion guibg=#1A6D7C guifg=#BEEBFE")
 
+vim.cmd("autocmd ColorScheme * highlight SignColumn guibg=NONE guifg=#FF1338")
+
+vim.cmd("autocmd ColorScheme * highlight LspInlayHint guibg=NONE")
+
 -- NeoTree
 vim.cmd("autocmd ColorScheme * highlight NeoTreeNormal guibg=NONE")
 vim.cmd("autocmd ColorScheme * highlight NeoTreeNormalNC guibg=NONE")

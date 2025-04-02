@@ -20,7 +20,8 @@ local configurations = {
   'conflict',
   'tokyonight',
   'neo-tree',
-  'gitsigns'
+  'gitsigns',
+  'dap'
 }
 
 for _, config in ipairs(configurations) do

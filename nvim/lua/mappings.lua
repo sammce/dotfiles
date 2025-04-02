@@ -16,6 +16,14 @@ vim.cmd [[
     " NNN
     nmap <silent> <leader>nn :NnnPicker<CR>
 
+    " Dap
+    nmap <silent> <leader>dn :DapNew<CR>
+    nmap <silent> <leader>dc :DapContinue<CR>
+    nmap <silent> <leader>do :DapStepOut<CR>
+    nmap <silent> <leader>di :DapStepInto<CR>
+    nmap <silent> <leader>ds :DapStepOver<CR>
+    nmap <silent> <leader>db :DapToggleBreakpoint<CR>
+    nmap <silent> <leader>dt :DapTerminate<CR>
 
     " Neotree
     nmap <silent> <leader>et :Neotree<CR>
@@ -77,6 +85,8 @@ vim.cmd [[
     imap <silent><script><expr> <leader><Tab> codeium#Accept()
     imap <silent><script><expr> <leader>cl codeium#AcceptNextLine()
     imap <silent><script><expr> <leader>cw codeium#AcceptNextWord()
+    nmap <silent> <leader>cd :CodeiumDisable<CR>
+    nmap <silent> <leader>ce :CodeiumEnable<CR>
 
 
     " Icon picker

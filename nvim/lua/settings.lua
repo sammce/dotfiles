@@ -19,7 +19,6 @@ vim.cmd [[
   set guicursor+=i:blinkwait10
 ]]
 
-
 -- vim.g.copilot_enabled = 1
 vim.g.codeium_disable_bindings = 1
 
@@ -79,3 +78,6 @@ vim.cmd [[ autocmd BufReadPost,FileReadPost * normal zR ]]
 vim.opt.termguicolors = true
 
 vim.g.user_emmet_expandabbr_key = '<leader>em'
+
+-- Autocommand for enabling inlay hints in rust
+vim.cmd [[ autocmd FileType rust lua vim.lsp.inlay_hint.enable() ]]
