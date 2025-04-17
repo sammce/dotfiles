@@ -7,6 +7,31 @@ vim.cmd("autocmd ColorScheme * highlight SignColumn guibg=NONE guifg=#FF1338")
 
 vim.cmd("autocmd ColorScheme * highlight LspInlayHint guibg=NONE")
 
+vim.cmd("autocmd ColorScheme * highlight LineNr guifg=#6774aa")
+vim.cmd("autocmd ColorScheme * highlight LineNrBelow guifg=#6774aa")
+vim.cmd("autocmd ColorScheme * highlight LineNrAbove guifg=#6774aa")
+
+-- Bufferline (this could/should be better)
+vim.cmd("autocmd ColorScheme * highlight BufferLineBufferSelected guibg=#08303e")
+vim.cmd("autocmd ColorScheme * highlight BufferLineDuplicateSelected guibg=#08303e")
+
+vim.cmd("autocmd ColorScheme * highlight BufferLineWarningSelected guibg=#08303e")
+vim.cmd("autocmd ColorScheme * highlight BufferLineInfoSelected guibg=#08303e")
+vim.cmd("autocmd ColorScheme * highlight BufferLineErrorSelected guibg=#08303e")
+vim.cmd("autocmd ColorScheme * highlight BufferLineHintSelected guibg=#08303e")
+
+vim.cmd("autocmd ColorScheme * highlight BufferLineWarningDiagnosticSelected guibg=#08303e")
+vim.cmd("autocmd ColorScheme * highlight BufferLineInfoDiagnosticSelected guibg=#08303e")
+vim.cmd("autocmd ColorScheme * highlight BufferLineErrorDiagnosticSelected guibg=#08303e")
+vim.cmd("autocmd ColorScheme * highlight BufferLineHintDiagnosticSelected guibg=#08303e")
+
+vim.cmd("autocmd ColorScheme * highlight BufferLineTabSeparatorSelected guibg=#08303e")
+vim.cmd("autocmd ColorScheme * highlight BufferLineSeparatorSelected guibg=#08303e")
+vim.cmd("autocmd ColorScheme * highlight BufferLineCloseButtonSelected guibg=#08303e")
+vim.cmd("autocmd ColorScheme * highlight BufferLineModifiedSelected guibg=#08303e")
+
+vim.cmd("autocmd ColorScheme * highlight BufferLineFill guibg=#072a32")
+
 -- NeoTree
 vim.cmd("autocmd ColorScheme * highlight NeoTreeNormal guibg=NONE")
 vim.cmd("autocmd ColorScheme * highlight NeoTreeNormalNC guibg=NONE")

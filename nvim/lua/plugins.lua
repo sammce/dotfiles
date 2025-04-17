@@ -57,7 +57,7 @@ require("lazy").setup({
     cmd = "Telescope",
     dependencies = { "nvim-telescope/telescope-fzf-native.nvim" },
   },
-  { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }, -- Faster searching
+  { "nvim-telescope/telescope-fzf-native.nvim", build = "make" }, -- Faster searching
   { "mcchrish/nnn.vim" }, -- NNN vim wrapper
 
 
@@ -67,7 +67,7 @@ require("lazy").setup({
   { "akinsho/bufferline.nvim" }, -- Buffer tabs
   { "rcarriga/nvim-notify" }, -- Notifications
   { "lukas-reineke/indent-blankline.nvim" }, -- Indentation guides
-  { "psliwka/vim-smoothie" }, -- Smooth scrolling
+  -- { "psliwka/vim-smoothie" }, -- Smooth scrolling
 
   -- 🏗️ LSP & Code Navigation
   { "onsails/lspkind.nvim" }, -- Icons in LSP completion
@@ -85,12 +85,12 @@ require("lazy").setup({
   -- 🛠️ QOL Plugins (Git, Comments, Formatting, etc.)
   { "tpope/vim-fugitive" }, -- Git integration
   { "tpope/vim-surround" }, -- Modify surrounding characters
-  { "tpope/vim-commentary", lazy = true }, -- Comment code easily
+  { "tpope/vim-commentary" }, -- Comment code easily
   { "tpope/vim-eunuch" }, -- Unix commands in Vim
   { "machakann/vim-highlightedyank" },
   { "lewis6991/gitsigns.nvim" }, -- Show Git diffs in the gutter
   { "jiangmiao/auto-pairs" }, -- Auto-close brackets & quotes
-  { "akinsho/git-conflict.nvim", lazy = true }, -- VSCode-style Git conflict resolution
+  { "akinsho/git-conflict.nvim" }, -- VSCode-style Git conflict resolution
   { "tpope/vim-abolish" }, -- Enhanced substitutions
   { "nmac427/guess-indent.nvim" }, -- Auto-detect indentation
   { 'MunifTanjim/prettier.nvim' }, -- Prettier support

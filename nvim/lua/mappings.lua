@@ -13,6 +13,9 @@ vim.cmd [[
     nmap <silent> <leader><S-Tab> :bprevious<CR>
     nmap <silent> <leader>ba :%bd\|e#\|bd#<CR>
 
+    " Bufferline
+    nmap <silent> <leader>bp :BufferLinePick<CR>
+
     " NNN
     nmap <silent> <leader>nn :NnnPicker<CR>
 
@@ -24,6 +27,7 @@ vim.cmd [[
     nmap <silent> <leader>ds :DapStepOver<CR>
     nmap <silent> <leader>db :DapToggleBreakpoint<CR>
     nmap <silent> <leader>dt :DapTerminate<CR>
+
 
     " Neotree
     nmap <silent> <leader>et :Neotree<CR>
@@ -38,6 +42,15 @@ vim.cmd [[
 
     " Aerial
     nmap <silent> <leader>at :AerialToggle<CR>
+    nmap <silent> <leader>an :AerialNavToggle<CR>
+    nnoremap <silent><leader>ak :AerialPrev<CR>
+    vnoremap <silent><leader>ak :AerialPrev<CR>
+    nnoremap <silent><leader>aj :AerialNext<CR>
+    vnoremap <silent><leader>aj :AerialNext<CR>
+
+    " Fugitive (Git)
+    nnoremap <silent> <leader>gs :0G<CR>
+    nnoremap <silent> <leader>gd :Gdiffsplit<CR>
 
     " Trouble
     nmap <silent> <leader>tr :Trouble diagnostics focus<CR>
@@ -48,7 +61,8 @@ vim.cmd [[
 
     " Telescope mappings
     nnoremap <silent> <leader>ff :Telescope find_files<CR>
-    nnoremap <silent> <leader>fg :Telescope live_grep<CR>
+    nnoremap <silent> <leader>fg :Telescope live_grep search="" only_sort_text=true<CR>
+    nnoremap <silent> <leader>fs :lua require'telescope.builtin'.grep_string{ shorten_path = true, word_match = "-w", only_sort_text = true, search = '' }<CR>
     nnoremap <silent> <leader>fb :Telescope buffers<CR>
     nnoremap <silent> <leader>fh :Telescope help_tags<CR>
     nnoremap <silent> <leader>f/ :Telescope current_buffer_fuzzy_find<CR>
@@ -59,15 +73,16 @@ vim.cmd [[
     nnoremap <silent> <leader>ft :TodoTelescope<CR>
 
     " Smoothie
-    nnoremap <C-u> <cmd>call smoothie#do("\<C-u>zz") <CR>
-    vnoremap <C-u> <cmd>call smoothie#do("\<C-u>zz") <CR>
-    nnoremap <C-d> <cmd>call smoothie#do("\<C-d>zz") <CR>
-    vnoremap <C-d> <cmd>call smoothie#do("\<C-d>zz") <CR>
+    " nnoremap <C-u> <cmd>call smoothie#do("\<C-u>zz") <CR>
+    " vnoremap <C-u> <cmd>call smoothie#do("\<C-u>zz") <CR>
+    " nnoremap <C-d> <cmd>call smoothie#do("\<C-d>zz") <CR>
+    " vnoremap <C-d> <cmd>call smoothie#do("\<C-d>zz") <CR>
 
-    nnoremap { <cmd>call smoothie#do("\{zz") <CR>
-    vnoremap { <cmd>call smoothie#do("\{zz") <CR>
-    nnoremap } <cmd>call smoothie#do("\}zz") <CR>
-    vnoremap } <cmd>call smoothie#do("\}zz") <CR>
+    " nnoremap } <cmd>call smoothie#do("\}zz")<CR>
+    " vnoremap } <cmd>call smoothie#do("\}zz")<CR>
+    " nnoremap { <cmd>call smoothie#do("\{zz")<CR>
+    " vnoremap { <cmd>call smoothie#do("\{zz")<CR>
+
 
     " Nvim lsp stuff
     nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>
@@ -88,6 +103,14 @@ vim.cmd [[
     nmap <silent> <leader>cd :CodeiumDisable<CR>
     nmap <silent> <leader>ce :CodeiumEnable<CR>
 
+    " Formatting
+    nmap <C-f> gqq<CR>k
+    nmap <M-f> :lua vim.lsp.buf.format()<CR>
+    vmap <C-f> gq<CR>
+
+    " Comments
+    nmap <C-g> gcc<CR>
+    vmap <C-g> gc
 
     " Icon picker
     nmap <silent> <leader>i :IconPickerNormal<CR>
