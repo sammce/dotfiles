@@ -58,7 +58,10 @@ require("lazy").setup({
     dependencies = { "nvim-telescope/telescope-fzf-native.nvim" },
   },
   { "nvim-telescope/telescope-fzf-native.nvim", build = "make" }, -- Faster searching
-  { "mcchrish/nnn.vim" }, -- NNN vim wrapper
+
+  -- FZF
+  { 'junegunn/fzf' },
+  { 'junegunn/fzf.vim' },
 
 
   -- 🎨 UI Enhancements
@@ -67,7 +70,6 @@ require("lazy").setup({
   { "akinsho/bufferline.nvim" }, -- Buffer tabs
   { "rcarriga/nvim-notify" }, -- Notifications
   { "lukas-reineke/indent-blankline.nvim" }, -- Indentation guides
-  -- { "psliwka/vim-smoothie" }, -- Smooth scrolling
 
   -- 🏗️ LSP & Code Navigation
   { "onsails/lspkind.nvim" }, -- Icons in LSP completion
@@ -94,7 +96,11 @@ require("lazy").setup({
   { "tpope/vim-abolish" }, -- Enhanced substitutions
   { "nmac427/guess-indent.nvim" }, -- Auto-detect indentation
   { 'MunifTanjim/prettier.nvim' }, -- Prettier support
-
+  {
+    "chentoast/marks.nvim",
+    event = "VeryLazy",
+    opts = {},
+  },
 
   -- ✨ Fancy UI Plugins
   {

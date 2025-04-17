@@ -8,6 +8,7 @@ vim.cmd("autocmd ColorScheme * highlight SignColumn guibg=NONE guifg=#FF1338")
 vim.cmd("autocmd ColorScheme * highlight LspInlayHint guibg=NONE")
 
 vim.cmd("autocmd ColorScheme * highlight LineNr guifg=#6774aa")
+vim.cmd("autocmd ColorScheme * highlight MarkSignNumHL guifg=#6774aa")
 vim.cmd("autocmd ColorScheme * highlight LineNrBelow guifg=#6774aa")
 vim.cmd("autocmd ColorScheme * highlight LineNrAbove guifg=#6774aa")
 

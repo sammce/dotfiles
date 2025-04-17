@@ -60,16 +60,15 @@ vim.cmd [[
     nmap <silent> <leader>tsr :TSToolsRenameFile<CR>
 
     " Telescope mappings
-    nnoremap <silent> <leader>ff :Telescope find_files<CR>
-    nnoremap <silent> <leader>fg :Telescope live_grep search="" only_sort_text=true<CR>
-    nnoremap <silent> <leader>fs :lua require'telescope.builtin'.grep_string{ shorten_path = true, word_match = "-w", only_sort_text = true, search = '' }<CR>
-    nnoremap <silent> <leader>fb :Telescope buffers<CR>
-    nnoremap <silent> <leader>fh :Telescope help_tags<CR>
-    nnoremap <silent> <leader>f/ :Telescope current_buffer_fuzzy_find<CR>
-    nnoremap <silent> <leader>fo :Telescope oldfiles<CR>
+    nnoremap <silent> <leader>ff :Files<CR>
+    nnoremap <silent> <leader>fg :Rg<CR>
+    nnoremap <silent> <leader>fb :Buffers<CR>
+    nnoremap <silent> <leader>fh :Helptags<CR>
+    nnoremap <silent> <leader>f/ :BLines<CR>
+    nnoremap <silent> <leader>fo :History<CR>
     nnoremap <silent> <leader>fd :Telescope diagnostics<CR>
-    nnoremap <silent> <leader>fl :Telescope find_files cwd=~/.config/nvim/ search_dirs=lua,init.lua<CR>
-    nnoremap <silent> <leader>fc :Telescope find_files cwd=~/.config search_dirs=superfile<CR>
+    nnoremap <silent> <leader>fl :Files ~/.config/nvim<CR>
+    nnoremap <silent> <leader>fc :Files ~/.config<CR>
     nnoremap <silent> <leader>ft :TodoTelescope<CR>
 
     " Smoothie
