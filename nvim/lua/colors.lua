@@ -45,7 +45,6 @@ vim.cmd("autocmd ColorScheme * highlight NeoTreeEndOfBuffer guibg=NONE")
 vim.cmd("autocmd ColorScheme * highlight TelescopeNormal guibg=#000F13")
 vim.cmd("autocmd ColorScheme * highlight TelescopeBorder guibg=#000F13")
 
-
 -- WhichKey
 vim.cmd("autocmd ColorScheme * highlight WhichKeyNormal guibg=#000F13")
 vim.cmd("autocmd ColorScheme * highlight WhichKeyBorder guifg=#27a1b9 guibg=#000F13")

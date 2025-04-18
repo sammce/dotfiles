@@ -70,6 +70,9 @@ require("lazy").setup({
   { "akinsho/bufferline.nvim" }, -- Buffer tabs
   { "rcarriga/nvim-notify" }, -- Notifications
   { "lukas-reineke/indent-blankline.nvim" }, -- Indentation guides
+  { "rafi/awesome-vim-colorschemes" },
+  { "sainnhe/gruvbox-material" },
+  { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true, opts = {}},
 
   -- 🏗️ LSP & Code Navigation
   { "onsails/lspkind.nvim" }, -- Icons in LSP completion

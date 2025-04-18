@@ -14,7 +14,7 @@ vim.cmd [[
     nmap <silent> <leader>ba :%bd\|e#\|bd#<CR>
 
     " Bufferline
-    nmap <silent> <leader>bp :BufferLinePick<CR>
+    nmap <silent> <C-p> :BufferLinePick<CR>
 
     " NNN
     nmap <silent> <leader>nn :NnnPicker<CR>
@@ -64,24 +64,18 @@ vim.cmd [[
     nnoremap <silent> <leader>fg :Rg<CR>
     nnoremap <silent> <leader>fb :Buffers<CR>
     nnoremap <silent> <leader>fh :Helptags<CR>
-    nnoremap <silent> <leader>f/ :BLines<CR>
+    nnoremap <silent> <leader>/ :BLines<CR>
     nnoremap <silent> <leader>fo :History<CR>
     nnoremap <silent> <leader>fd :Telescope diagnostics<CR>
     nnoremap <silent> <leader>fl :Files ~/.config/nvim<CR>
     nnoremap <silent> <leader>fc :Files ~/.config<CR>
     nnoremap <silent> <leader>ft :TodoTelescope<CR>
 
-    " Smoothie
-    " nnoremap <C-u> <cmd>call smoothie#do("\<C-u>zz") <CR>
-    " vnoremap <C-u> <cmd>call smoothie#do("\<C-u>zz") <CR>
-    " nnoremap <C-d> <cmd>call smoothie#do("\<C-d>zz") <CR>
-    " vnoremap <C-d> <cmd>call smoothie#do("\<C-d>zz") <CR>
-
-    " nnoremap } <cmd>call smoothie#do("\}zz")<CR>
-    " vnoremap } <cmd>call smoothie#do("\}zz")<CR>
-    " nnoremap { <cmd>call smoothie#do("\{zz")<CR>
-    " vnoremap { <cmd>call smoothie#do("\{zz")<CR>
-
+    " Centering
+    nnoremap <C-u> <C-u>zz<CR>
+    vnoremap <C-u> <C-u>zz<CR>
+    nnoremap <C-d> <C-d>zz<CR>
+    vnoremap <C-d> <C-d>zz<CR>
 
     " Nvim lsp stuff
     nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>

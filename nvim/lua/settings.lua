@@ -81,3 +81,8 @@ vim.g.user_emmet_expandabbr_key = '<leader>em'
 
 -- Autocommand for enabling inlay hints in rust
 vim.cmd [[ autocmd FileType rust lua vim.lsp.inlay_hint.enable() ]]
+
+vim.g.gruvbox_material_diagnostic_virtual_text = "colored"
+vim.g.gruvbox_material_enable_bold = 1
+vim.g.gruvbox_material_enable_italic = 1
+vim.cmd [[ colorscheme gruvbox-material ]]
