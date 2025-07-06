@@ -10,8 +10,6 @@ null_ls.setup({
     null_ls.builtins.formatting.gofmt,
     null_ls.builtins.formatting.goimports_reviser,
     null_ls.builtins.formatting.golines,
-    -- null_ls.builtins.formatting.black,
-    null_ls.builtins.formatting.isort,
     null_ls.builtins.formatting.prettier,
   },
   -- on_attach = function(client, bufnr)

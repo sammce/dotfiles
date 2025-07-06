@@ -11,6 +11,8 @@ vim.cmd [[
 ]]
 vim.g.closetag_shortcut = '>'
 
+vim.g.python3_host_prog = "/Users/sammce/.pyenv/shims/python3"
+
 -- Set cursor in terminal emulators
 vim.cmd [[
   set guicursor=n-v-c:block-Cursor
