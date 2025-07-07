@@ -104,6 +104,7 @@ require("lazy").setup({
     event = "VeryLazy",
     opts = {},
   },
+  { "michaeljsmith/vim-indent-object" },
 
   -- ✨ Fancy UI Plugins
   {
@@ -165,7 +166,7 @@ require("lazy").setup({
   },
 
   -- AI
-  { "Exafunction/codeium.vim", event = "BufReadPre" }, -- AI code completion
+  { "Exafunction/codeium.vim" }, -- AI code completion
 
   -- 🖥️ Window & Session Management
   {
