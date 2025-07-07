@@ -12,7 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local html_like = {
-  'html', 'svelte', 'javascriptreact', 'typescriptreact', 'htmldjango', 'vue'
+  'html', 'svelte', 'javascriptreact', 'typescriptreact', 'vue', 'jinja'
 }
 
 require("lazy").setup({
@@ -29,7 +29,7 @@ require("lazy").setup({
   },
 
   -- ⚡ LSP Configuration
-  { "neovim/nvim-lspconfig" }, -- Simplifies LSP setup
+  { "neovim/nvim-lspconfig", }, -- Simplifies LSP setup
   { "williamboman/mason.nvim", config = true }, -- LSP server manager
   { "williamboman/mason-lspconfig.nvim" }, -- Mason integration with LSPConfig
 
@@ -127,7 +127,9 @@ require("lazy").setup({
   }, -- Distraction-free mode
 
   -- 📜 Markdown & Writing
-  { "iamcco/markdown-preview.nvim", ft = "markdown", run = "cd app && pnpm install" }, -- Live Markdown preview
+  { "iamcco/markdown-preview.nvim", ft = "markdown", build = ':call mkdp#util#install()',
+  -- run = "cd app && pnpm install",
+  }, -- Live Markdown preview
   { "dkarter/bullets.vim", ft = { "markdown", "text", "asciidoc", "journal" } }, -- Bullet points in Markdown
   { "davidmh/mdx.nvim", dependencies = { "nvim-treesitter/nvim-treesitter" }, ft = "mdx" }, -- Treesitter for MDX
 
@@ -136,11 +138,11 @@ require("lazy").setup({
     "mrcjkb/rustaceanvim",
     version = '^5', -- Recommended
   },
-  {
-    "pmizio/typescript-tools.nvim",
-    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-    opts = {}
-  }, -- TypeScript support
+  -- {
+  --   "pmizio/typescript-tools.nvim",
+  --   dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+  --   opts = {}
+  -- }, -- TypeScript support
   { "averms/black-nvim", ft = "python" }, -- Python formatter (Black)
   { "leafOfTree/vim-svelte-plugin", ft = "svelte" }, -- Svelte support
 
@@ -153,6 +155,7 @@ require("lazy").setup({
     ft = html_like,
     config = function() require("nvim-ts-autotag").setup() end,
   }, -- Auto-close HTML tags
+  { 'alvan/vim-closetag', ft=html_like },
 
   -- 🖼️ Emoji & Icon Picker
   {
@@ -196,6 +199,5 @@ require("lazy").setup({
     keys = { { ",ca", mode = { "v", "n" } } },
     config = function() vim.keymap.set({ "v", "n" }, ",ca", require("actions-preview").code_actions) end,
   }, -- Show available code actions
-
 })
 

@@ -9,12 +9,14 @@ vim.cmd [[
     let mapleader = ','
     nmap <silent> <leader>tw :call TrimWhitespace()<CR>
     nmap <silent> <leader><leader> :noh<CR>
-    nmap <silent> <leader><Tab> :bnext<CR>
-    nmap <silent> <leader><S-Tab> :bprevious<CR>
+    nmap <silent> <leader><Tab> :BufferLineCycleNext<CR>
+    nmap <silent> <leader><S-Tab> :BufferLineCyclePrev<CR>
     nmap <silent> <leader>ba :%bd\|e#\|bd#<CR>
 
     " Bufferline
     nmap <silent> <C-p> :BufferLinePick<CR>
+    nmap <silent> <leader>bl :BufferLineMoveNext<CR>
+    nmap <silent> <leader>bh :BufferLineMovePrev<CR>
 
     " NNN
     nmap <silent> <leader>nn :NnnPicker<CR>
@@ -27,7 +29,6 @@ vim.cmd [[
     nmap <silent> <leader>ds :DapStepOver<CR>
     nmap <silent> <leader>db :DapToggleBreakpoint<CR>
     nmap <silent> <leader>dt :DapTerminate<CR>
-
 
     " Neotree
     nmap <silent> <leader>et :Neotree<CR>
@@ -71,11 +72,6 @@ vim.cmd [[
     nnoremap <silent> <leader>fc :Files ~/.config<CR>
     nnoremap <silent> <leader>ft :TodoTelescope<CR>
 
-    " Centering
-    nnoremap <C-u> <C-u>zz<CR>
-    vnoremap <C-u> <C-u>zz<CR>
-    nnoremap <C-d> <C-d>zz<CR>
-    vnoremap <C-d> <C-d>zz<CR>
 
     " Nvim lsp stuff
     nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>
@@ -104,7 +100,7 @@ vim.cmd [[
     " Comments
     nmap <C-g> gcc<CR>
     vmap <C-g> gc
-
+    
     " Icon picker
     nmap <silent> <leader>i :IconPickerNormal<CR>
     nmap <silent> <leader>y :IconPickerYank<CR>

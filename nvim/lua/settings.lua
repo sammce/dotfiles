@@ -56,6 +56,7 @@ vim.cmd [[
 local custom_tab_filetypes = {
   "javascript",
   "typescript",
+  "javascriptreact",
   "typescriptreact",
   "svelte",
   "html",

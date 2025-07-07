@@ -7,6 +7,7 @@ ts.setup {
       "__snapshots__",
       "*-lock.*",
       "venv",
+      ".venv",
     },
     layout_config = {
       anchor = "CENTER",
