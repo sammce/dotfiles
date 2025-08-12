@@ -12,15 +12,15 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local html_like = {
-  'html', 'svelte', 'javascriptreact', 'typescriptreact', 'vue', 'jinja'
+  'html', 'svelte', 'javascriptreact', 'typescriptreact', 'vue', 'jinja', 'htmldjango'
 }
 
 require("lazy").setup({
 
   -- 🛠️ Core Dependencies
-  { "nvim-lua/plenary.nvim" },  -- Required by multiple plugins
+  { "nvim-lua/plenary.nvim" },       -- Required by multiple plugins
   { "nvim-tree/nvim-web-devicons" }, -- Icons for UI elements
-  { "MunifTanjim/nui.nvim" }, -- UI components for other plugins
+  { "MunifTanjim/nui.nvim" },        -- UI components for other plugins
 
   -- 🏗️ Treesitter for Syntax Highlighting
   {
@@ -29,26 +29,26 @@ require("lazy").setup({
   },
 
   -- ⚡ LSP Configuration
-  { "neovim/nvim-lspconfig", }, -- Simplifies LSP setup
-  { "williamboman/mason.nvim", config = true }, -- LSP server manager
-  { "williamboman/mason-lspconfig.nvim" }, -- Mason integration with LSPConfig
+  { "neovim/nvim-lspconfig", },                 -- Simplifies LSP setup
+  { "williamboman/mason.nvim",            config = true }, -- LSP server manager
+  { "williamboman/mason-lspconfig.nvim" },      -- Mason integration with LSPConfig
 
   -- 🐞 Debug
   { "mfussenegger/nvim-dap" },
   { "jay-babu/mason-nvim-dap.nvim" },
   { "nvim-neotest/nvim-nio" },
-  { "rcarriga/nvim-dap-ui", dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} },
+  { "rcarriga/nvim-dap-ui",               dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
 
   -- 🔮 Completion & Snippets
-  { "hrsh7th/nvim-cmp", event = "InsertEnter" }, -- Auto-completion engine
-  { "hrsh7th/cmp-nvim-lsp" }, -- LSP as a completion source
-  { "hrsh7th/cmp-buffer" }, -- Buffer completions
-  { "hrsh7th/cmp-path" }, -- Path completions
-  { "hrsh7th/cmp-nvim-lsp-signature-help" }, -- Show function signatures
-  { "L3MON4D3/LuaSnip", version = "v2.*", build = "make install_jsregexp" }, -- Snippet engine
-  { "rafamadriz/friendly-snippets" }, -- VSCode snippets
-  { "nvimtools/none-ls.nvim" }, -- Allows non-lsp sources to contribute to diagnostics etc
-  { "folke/lazydev.nvim", ft = "lua" }, -- Sets up LSP for lua properly
+  { "hrsh7th/nvim-cmp",                   event = "InsertEnter" },           -- Auto-completion engine
+  { "hrsh7th/cmp-nvim-lsp" },                                                -- LSP as a completion source
+  { "hrsh7th/cmp-buffer" },                                                  -- Buffer completions
+  { "hrsh7th/cmp-path" },                                                    -- Path completions
+  { "hrsh7th/cmp-nvim-lsp-signature-help" },                                 -- Show function signatures
+  { "L3MON4D3/LuaSnip",                   version = "v2.*",                                                 build = "make install_jsregexp" }, -- Snippet engine
+  { "rafamadriz/friendly-snippets" },                                        -- VSCode snippets
+  { "nvimtools/none-ls.nvim" },                                              -- Allows non-lsp sources to contribute to diagnostics etc
+  { "folke/lazydev.nvim",                 ft = "lua" },                      -- Sets up LSP for lua properly
 
 
   -- 🔍 Telescope (Fuzzy Finder)
@@ -65,14 +65,14 @@ require("lazy").setup({
 
 
   -- 🎨 UI Enhancements
-  { "folke/tokyonight.nvim", priority = 1000 }, -- Color scheme
-  { "nvim-lualine/lualine.nvim" }, -- Statusline
-  { "akinsho/bufferline.nvim" }, -- Buffer tabs
-  { "rcarriga/nvim-notify" }, -- Notifications
-  { "lukas-reineke/indent-blankline.nvim" }, -- Indentation guides
+  { "folke/tokyonight.nvim",                    priority = 1000 }, -- Color scheme
+  { "nvim-lualine/lualine.nvim" },              -- Statusline
+  { "akinsho/bufferline.nvim" },                -- Buffer tabs
+  { "rcarriga/nvim-notify" },                   -- Notifications
+  { "lukas-reineke/indent-blankline.nvim" },    -- Indentation guides
   { "rafi/awesome-vim-colorschemes" },
   { "sainnhe/gruvbox-material" },
-  { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true, opts = {}},
+  { "ellisonleao/gruvbox.nvim",                 priority = 1000,  config = true, opts = {} },
 
   -- 🏗️ LSP & Code Navigation
   { "onsails/lspkind.nvim" }, -- Icons in LSP completion
@@ -88,23 +88,22 @@ require("lazy").setup({
   }, -- Function symbol outline
 
   -- 🛠️ QOL Plugins (Git, Comments, Formatting, etc.)
-  { "tpope/vim-fugitive" }, -- Git integration
-  { "tpope/vim-surround" }, -- Modify surrounding characters
-  { "tpope/vim-commentary" }, -- Comment code easily
-  { "tpope/vim-eunuch" }, -- Unix commands in Vim
+  { "tpope/vim-fugitive" },        -- Git integration
+  { "tpope/vim-surround" },        -- Modify surrounding characters
+  { "tpope/vim-commentary" },      -- Comment code easily
+  { "tpope/vim-eunuch" },          -- Unix commands in Vim
   { "machakann/vim-highlightedyank" },
-  { "lewis6991/gitsigns.nvim" }, -- Show Git diffs in the gutter
-  { "jiangmiao/auto-pairs" }, -- Auto-close brackets & quotes
+  { "lewis6991/gitsigns.nvim" },   -- Show Git diffs in the gutter
+  { "jiangmiao/auto-pairs" },      -- Auto-close brackets & quotes
   { "akinsho/git-conflict.nvim" }, -- VSCode-style Git conflict resolution
-  { "tpope/vim-abolish" }, -- Enhanced substitutions
+  { "tpope/vim-abolish" },         -- Enhanced substitutions
   { "nmac427/guess-indent.nvim" }, -- Auto-detect indentation
-  { 'MunifTanjim/prettier.nvim' }, -- Prettier support
+  -- { 'MunifTanjim/prettier.nvim' }, -- Prettier support
   {
     "chentoast/marks.nvim",
     event = "VeryLazy",
     opts = {},
   },
-  { "michaeljsmith/vim-indent-object" },
 
   -- ✨ Fancy UI Plugins
   {
@@ -112,11 +111,12 @@ require("lazy").setup({
     event = "VeryLazy",
     dependencies = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
   }, -- Enhanced notifications
-  { 
-    "folke/which-key.nvim", 
+  {
+    "folke/which-key.nvim",
     opts = {
       preset = "modern"
-    }, event = "VeryLazy" 
+    },
+    event = "VeryLazy"
   }, -- Show possible keybindings
   {
     "folke/zen-mode.nvim",
@@ -127,12 +127,9 @@ require("lazy").setup({
     },
   }, -- Distraction-free mode
 
-  -- 📜 Markdown & Writing
-  { "iamcco/markdown-preview.nvim", ft = "markdown", build = ':call mkdp#util#install()',
-  -- run = "cd app && pnpm install",
-  }, -- Live Markdown preview
-  { "dkarter/bullets.vim", ft = { "markdown", "text", "asciidoc", "journal" } }, -- Bullet points in Markdown
-  { "davidmh/mdx.nvim", dependencies = { "nvim-treesitter/nvim-treesitter" }, ft = "mdx" }, -- Treesitter for MDX
+  { "jannis-baum/vivify.vim", ft="markdown" },
+  { "dkarter/bullets.vim", ft = { "markdown", "text", "asciidoc", "journal" } },            -- Bullet points in Markdown
+  { "davidmh/mdx.nvim",    dependencies = { "nvim-treesitter/nvim-treesitter" }, ft = "mdx" }, -- Treesitter for MDX
 
   -- 🚀 Programming Language Support
   {
@@ -144,11 +141,11 @@ require("lazy").setup({
   --   dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
   --   opts = {}
   -- }, -- TypeScript support
-  { "averms/black-nvim", ft = "python" }, -- Python formatter (Black)
-  { "leafOfTree/vim-svelte-plugin", ft = "svelte" }, -- Svelte support
+  { "averms/black-nvim",                           ft = "python" }, -- Python formatter (Black)
+  { "leafOfTree/vim-svelte-plugin",                ft = "svelte" }, -- Svelte support
 
   -- 🏗️ Web Development
-  { "mattn/emmet-vim", ft = html_like }, -- Emmet for fast HTML coding
+  { "mattn/emmet-vim",                             ft = html_like }, -- Emmet for fast HTML coding
   { "JoosepAlviste/nvim-ts-context-commentstring", ft = html_like }, -- Context-aware comments
   { "KabbAmine/vCoolor.vim" },
   {
@@ -156,7 +153,7 @@ require("lazy").setup({
     ft = html_like,
     config = function() require("nvim-ts-autotag").setup() end,
   }, -- Auto-close HTML tags
-  { 'alvan/vim-closetag', ft=html_like },
+  { 'alvan/vim-closetag',      ft = html_like },
 
   -- 🖼️ Emoji & Icon Picker
   {
@@ -166,7 +163,7 @@ require("lazy").setup({
   },
 
   -- AI
-  { "Exafunction/codeium.vim" }, -- AI code completion
+  { "Exafunction/codeium.vim", event = "BufReadPre" }, -- AI code completion
 
   -- 🖥️ Window & Session Management
   {
@@ -193,7 +190,7 @@ require("lazy").setup({
   }, -- File explorer replacement
 
   -- ⏳ Miscellaneous Enhancements
-  { "sammce/fleeting.nvim" }, -- Tracks time spent in Neovim
+  { "sammce/fleeting.nvim" },     -- Tracks time spent in Neovim
   { "folke/todo-comments.nvim" }, -- Highlights TODOs, FIXMEs, etc.
   {
     "aznhe21/actions-preview.nvim",
@@ -201,4 +198,3 @@ require("lazy").setup({
     config = function() vim.keymap.set({ "v", "n" }, ",ca", require("actions-preview").code_actions) end,
   }, -- Show available code actions
 })
-

@@ -80,6 +80,7 @@ vim.cmd [[
     nnoremap <silent> [d <cmd>lua vim.diagnostic.goto_prev({ float = false })<CR>
     nnoremap <silent> ]d <cmd>lua vim.diagnostic.goto_next({ float = false })<CR>
     nnoremap <silent> <leader>of <cmd>lua vim.diagnostic.open_float()<CR>
+    nnoremap <silent> <leader>lr :LspRestart<CR>
 
     " Close buffer
     nmap <silent> <leader>w :bd<CR>

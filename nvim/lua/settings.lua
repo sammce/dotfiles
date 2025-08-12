@@ -11,8 +11,6 @@ vim.cmd [[
 ]]
 vim.g.closetag_shortcut = '>'
 
-vim.g.python3_host_prog = "/Users/sammce/.pyenv/shims/python3"
-
 -- Set cursor in terminal emulators
 vim.cmd [[
   set guicursor=n-v-c:block-Cursor
@@ -62,7 +60,6 @@ local custom_tab_filetypes = {
   "typescriptreact",
   "svelte",
   "html",
-  "htmldjango",
   "css",
   "scss",
   "lua",
@@ -72,8 +69,18 @@ local custom_tab_filetypes = {
   "mdx"
 }
 
+vim.filetype.add({
+  pattern = {
+    ["compose*.ya?ml"] = "yaml.docker-compose",
+    ["docker-compose*.ya?ml"] = "yaml.docker-compose",
+    ["Dockerfile*"] = "dockerfile",
+  }
+})
+
 for _, file in pairs(custom_tab_filetypes) do
-  vim.cmd("autocmd FileType " .. file .. " setlocal tabstop=2 shiftwidth=2")
+  if file ~= "htmldjango" then
+    vim.cmd("autocmd FileType " .. file .. " setlocal tabstop=2 shiftwidth=2")
+  end
 end
 
 vim.cmd [[ autocmd BufReadPost,FileReadPost * normal zR ]]

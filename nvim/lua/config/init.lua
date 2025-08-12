@@ -24,7 +24,6 @@ local configurations = {
   'dap'
 }
 
-
 for _, config in ipairs(configurations) do
   cfg(config)
 end
