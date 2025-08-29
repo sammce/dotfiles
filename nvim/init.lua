@@ -1,4 +1,4 @@
-require("lua.lazy")
+require("lazy-init")
 require("config")
 require("mappings")
 require("settings")
