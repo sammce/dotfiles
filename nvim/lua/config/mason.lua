@@ -1,15 +1,8 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
   ensure_installed = {
-    "lua_ls",
     "basedpyright",
-    "eslint",
-    "cssls",
-    "tailwindcss",
-    "jinja_lsp",
     "ruff",
-    "ts_ls",
-    "dockerls",
   }
 })
 

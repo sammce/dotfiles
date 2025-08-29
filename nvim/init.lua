@@ -1,4 +1,4 @@
-require("plugins")
+require("lua.lazy")
 require("config")
 require("mappings")
 require("settings")

@@ -6,7 +6,6 @@ vim.cmd [[
     endfunction
 
     " Core
-    let mapleader = ','
     nmap <silent> <leader>tw :call TrimWhitespace()<CR>
     nmap <silent> <leader><leader> :noh<CR>
     nmap <silent> <leader><Tab> :BufferLineCycleNext<CR>

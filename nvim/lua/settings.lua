@@ -19,20 +19,6 @@ vim.cmd [[
   set guicursor+=i:blinkwait10
 ]]
 
--- vim.g.copilot_enabled = 1
-vim.g.codeium_disable_bindings = 1
-
--- Git blame
-vim.g.blamer_enabled = true
-vim.g.blamer_prefix = '       '
-vim.g.blamer_show_in_insert_modes = false
-vim.g.blamer_show_in_visual_modes = false
-
--- NNN.vim
-vim.cmd [[
-  let g:nnn#command = 'unset NNN_TMPFILE; nnn -do'
-]]
-
 -- Svelte plugin (fix indenting)
 vim.g.vim_svelte_plugin_has_init_indent = 1
 vim.g.vim_svelte_plugin_use_typescript = 1
@@ -82,8 +68,6 @@ for _, file in pairs(custom_tab_filetypes) do
     vim.cmd("autocmd FileType " .. file .. " setlocal tabstop=2 shiftwidth=2")
   end
 end
-
-vim.cmd [[ autocmd BufReadPost,FileReadPost * normal zR ]]
 
 vim.opt.termguicolors = true
 
