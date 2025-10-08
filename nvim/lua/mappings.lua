@@ -93,9 +93,9 @@ vim.cmd [[
     nmap <silent> <leader>ce :CodeiumEnable<CR>
 
     " Formatting
-    nmap <C-f> gqq<CR>k
-    nmap <M-f> :lua vim.lsp.buf.format()<CR>
-    vmap <C-f> gq<CR>
+    nmap <M-f> gqq<CR>k
+    vmap <M-f> gq<CR>
+    nmap <C-f> :lua vim.lsp.buf.format()<CR>
 
     " Comments
     nmap <C-g> gcc<CR>

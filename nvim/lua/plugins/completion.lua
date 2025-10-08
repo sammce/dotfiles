@@ -19,7 +19,7 @@ local M = {
   { 'junegunn/fzf.vim' },
 
 
-  { "Exafunction/codeium.vim", event = "BufReadPre" }, -- AI code completion
+  { "Exafunction/codeium.vim" }, -- AI code completion
 }
 
 return M
