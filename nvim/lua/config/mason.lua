@@ -6,6 +6,7 @@ require("mason-lspconfig").setup({
     "html",
     "cssls",
     "tailwindcss",
+    "prettier",
     "eslint",
     "lua_ls",
     "ruff",
@@ -26,6 +27,13 @@ vim.lsp.config("djlint", {
 
 vim.lsp.config("html", {
   filetypes = { "html", "htmldjango" },
+  on_attach = function(client, _)
+    client.server_capabilities.documentFormattingProvider = false
+    client.server_capabilities.documentRangeFormattingProvider = false
+  end,
+})
+
+vim.lsp.config("ts_ls", {
   on_attach = function(client, _)
     client.server_capabilities.documentFormattingProvider = false
     client.server_capabilities.documentRangeFormattingProvider = false
